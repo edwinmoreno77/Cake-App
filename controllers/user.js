@@ -14,7 +14,6 @@ const userGet = async (req = request, res = response) => {
         User.find(query)
             .skip(Number(from))
             .limit(Number(limit))
-
     ]);
 
     res.json({
@@ -23,7 +22,7 @@ const userGet = async (req = request, res = response) => {
     });
 }
 
-const userPost = async (req, res = response) => {
+const userPost = async (req, res) => {
 
     const { name, email, password, role } = req.body;
 
@@ -40,7 +39,7 @@ const userPost = async (req, res = response) => {
     });
 }
 
-const userPut = async (req, res = response) => {
+const userPut = async (req, res) => {
 
     const { id } = req.params;
     const { _id, password, google, email, ...resto } = req.body;
@@ -59,7 +58,7 @@ const userPut = async (req, res = response) => {
     });
 }
 
-const userPatch = (req, res = response) => {
+const userPatch = (req, res) => {
 
     res.json({
         msg: 'patch-controller',
@@ -72,16 +71,19 @@ const userPatch = (req, res = response) => {
     });
 }
 
-const userDelete = (req, res = response) => {
+const userDelete = async (req, res) => {
+
+    const { id } = req.params;
+
+    //physically remove user
+    // const user = await User.findByIdAndDelete(id);
+
+    const user = await User.findByIdAndUpdate(id, { state: false });
 
     res.json({
-        msg: 'delete-controller',
-        name: 'Juan',
-        lastName: 'Perez',
-        age: '20',
-        hobbies: ['comer', 'dormir', 'jugar'],
-        isMarried: false
-
+        msg: 'user deleted',
+        name: user.name,
+        id: user._id
     });
 }
 
