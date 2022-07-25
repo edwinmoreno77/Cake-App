@@ -4,20 +4,20 @@ const bcryptjs = require('bcryptjs');
 const User = require('../models/user');
 
 
-const userGet = (req = request, res = response) => {
+const userGet = async (req = request, res = response) => {
 
-    const { page = 1, name, lastName, age, hobbies = 'no hobbies', isMarried, apikey } = req.query;
+    const { limit = 5, from = 0 } = req.query;
+    const query = { state: true };
+
+    const users = await User.find(query)
+        .skip(Number(from))
+        .limit(Number(limit));
+
+    const total = await User.countDocuments(query);
 
     res.json({
-        msg: 'get-controller',
-        name,
-        lastName,
-        age,
-        hobbies,
-        isMarried,
-        apikey,
-        page
-
+        total,
+        users
     });
 }
 
@@ -53,7 +53,6 @@ const userPut = async (req, res = response) => {
     const user = await User.findByIdAndUpdate(id, resto, { new: true });
 
     res.json({
-        msg: 'put-controller',
         user
     });
 }
