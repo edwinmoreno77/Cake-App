@@ -9,13 +9,7 @@ const userGet = async (req = request, res = response) => {
     const { limit = 5, from = 0 } = req.query;
     const query = { state: true };
 
-    // const users = await User.find(query)
-    //     .skip(Number(from))
-    //     .limit(Number(limit));
-
-    // const total = await User.countDocuments(query);
-
-    const response = await Promise.all([
+    const [total, users] = await Promise.all([
         User.countDocuments(query),
         User.find(query)
             .skip(Number(from))
