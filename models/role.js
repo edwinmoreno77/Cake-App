@@ -6,9 +6,7 @@ const RoleSchema = Schema({
         type: String,
         required: [true, 'role is required']
     }
-
 })
-
 
 
 module.exports = model('Role', RoleSchema);

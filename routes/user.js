@@ -13,18 +13,16 @@ router.get('/', userGet);
 
 router.put('/:id', [
     check('id', 'invalid id').isMongoId(),
-    check('id').custom((id) => userExistsById(id)),
-    check('role').custom((role) => isValidRole(role)),
+    check('id').custom(userExistsById),
+    check('role').custom(isValidRole),
     validateFields
 ], userPut);
 
 router.post('/', [
     check('name', 'name must be at least 3 characters').isLength({ min: 3 }),
-    // check('email', 'email not valid').isEmail(),
-    check('email').custom((email) => emailExists(email)),
+    check('email').custom(emailExists),
     check('password', 'password must be at least 6 characters').isLength({ min: 6 }),
-    check('role').custom((role) => isValidRole(role)),
-    // check('role', 'role must be admin or user').isIn(['ADMIN_ROLE', 'USER_ROLE']),
+    check('role').custom(isValidRole),
     validateFields
 ], userPost);
 
@@ -32,7 +30,7 @@ router.patch('/', userPatch);
 
 router.delete('/:id', [
     check('id', 'invalid id').isMongoId(),
-    check('id').custom((id) => userExistsById(id)),
+    check('id').custom(userExistsById),
     validateFields
 ], userDelete);
 
