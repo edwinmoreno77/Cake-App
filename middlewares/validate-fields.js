@@ -23,8 +23,19 @@ const emailExists = async (email) => {
 
 }
 
+const userExistsById = async (id) => {
+
+    const idExist = await User.findById(id);
+
+    if (!idExist) {
+        throw new Error(`ID:${id} does not exist`);
+    }
+
+}
+
 
 module.exports = {
     validateFields,
-    emailExists
+    emailExists,
+    userExistsById
 }

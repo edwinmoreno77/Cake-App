@@ -5,13 +5,18 @@ const { isValidRole } = require('../helpers/db-validators');
 
 const { userGet, userPut, userPost, userPatch, userDelete } = require('../controllers/user');
 
-const { validateFields, emailExists } = require('../middlewares/validate-fields');
+const { validateFields, emailExists, userExistsById } = require('../middlewares/validate-fields');
 
 const router = Router();
 
 router.get('/', userGet);
 
-router.put('/:id', userPut);
+router.put('/:id', [
+    check('id', 'invalid id').isMongoId(),
+    check('id').custom((id) => userExistsById(id)),
+    check('role').custom((role) => isValidRole(role)),
+    validateFields
+], userPut);
 
 router.post('/', [
     check('name', 'name must be at least 3 characters').isLength({ min: 3 }),

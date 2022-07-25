@@ -27,7 +27,7 @@ const userPost = async (req, res = response) => {
 
     const user = new User({ name, email, password, role });
 
-    // encrypt password
+    //encrypt password
     const salt = bcryptjs.genSaltSync(10);
     user.password = bcryptjs.hashSync(password, salt);
 
@@ -38,13 +38,23 @@ const userPost = async (req, res = response) => {
     });
 }
 
-const userPut = (req, res = response) => {
+const userPut = async (req, res = response) => {
 
-    const id = req.params.id;
+    const { id } = req.params;
+    const { _id, password, google, email, ...resto } = req.body;
+
+    //validate in database
+    if (password) {
+        //encrypt password
+        const salt = bcryptjs.genSaltSync(10);
+        resto.password = bcryptjs.hashSync(password, salt);
+    }
+
+    const user = await User.findByIdAndUpdate(id, resto, { new: true });
 
     res.json({
         msg: 'put-controller',
-        id
+        user
     });
 }
 
@@ -57,7 +67,6 @@ const userPatch = (req, res = response) => {
         age: '20',
         hobbies: ['comer', 'dormir', 'jugar'],
         isMarried: false
-
 
     });
 }
