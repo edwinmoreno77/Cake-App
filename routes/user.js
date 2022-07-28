@@ -1,11 +1,13 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { isValidRole } = require('../helpers/db-validators');
 
-
-const { userGet, userPut, userPost, userPatch, userDelete } = require('../controllers/user');
+const { isValidRole,
+    validateJWT,
+    isAdminRole,
+    allowedRole } = require('../middlewares');
 
 const { validateFields, emailExists, userExistsById } = require('../middlewares/validate-fields');
+const { userGet, userPut, userPost, userPatch, userDelete } = require('../controllers/user');
 
 const router = Router();
 
@@ -29,6 +31,9 @@ router.post('/', [
 router.patch('/', userPatch);
 
 router.delete('/:id', [
+    validateJWT,
+    // isAdminRole,//TODO: Uncomment this line to enable delete function for admin role only
+    allowedRole('ADMIN_ROLE', 'SALES_ROLE'),
     check('id', 'invalid id').isMongoId(),
     check('id').custom(userExistsById),
     validateFields
