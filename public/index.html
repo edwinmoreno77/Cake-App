@@ -19,12 +19,17 @@
         data-shape="rectangular" data-logo_alignment="left">
     </div>
 
+    <hr>
+
+    <button id="google_logout">
+        Logout
+    </button>
+
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <script>
         function handleCredentialResponse(response) {
 
-            // console.log('id_token', response.credential);
             const body = { id_token: response.credential };
 
             fetch('http://localhost:8080/api/auth/google', {
@@ -36,21 +41,25 @@
             })
                 .then(resp => resp.json())
                 .then(resp => {
-                    console.log(resp);
+                    console.log(resp)
+                    localStorage.setItem('email', resp.user.email);
                 })
                 .catch(console.warn);
 
-            // decodeJwtResponse() is a custom function defined by you
-            // to decode the credential response.
-            // const responsePayload = decodeJwtResponse(response.credential);
-
-            // console.log("ID: " + responsePayload.sub);
-            // console.log('Full Name: ' + responsePayload.name);
-            // console.log('Given Name: ' + responsePayload.given_name);
-            // console.log('Family Name: ' + responsePayload.family_name);
-            // console.log("Image URL: " + responsePayload.picture);
-            // console.log("Email: " + responsePayload.email);
         }
+
+        const button = document.getElementById('google_logout');
+        button.onclick = () => {
+
+            // console.log(google.accounts.id)
+            google.accounts.id.disableAutoSelect();
+
+            google.accounts.id.revoke(localStorage.getItem('email'), done => {
+                // localStorage.clear();
+                localStorage.removeItem('email');
+                location.reload();
+            })
+        };
     </script>
 </body>
 

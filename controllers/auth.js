@@ -68,7 +68,7 @@ const googleSignIn = async (req, res = response) => {
             const data = {
                 name,
                 email,
-                password: '1234567',
+                password: '123456',
                 img,
                 role: 'USER_ROLE',
                 google: true
@@ -80,7 +80,7 @@ const googleSignIn = async (req, res = response) => {
         // if user state is false, then user is not active
         if (!user.state) {
             return res.status(400).json({
-                msg: 'User does not exist - state: false'
+                msg: 'User does not exist - state: false, Please contact admin'
             });
         }
 
