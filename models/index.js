@@ -2,13 +2,13 @@
 
 
 
-const Categorie = require('./categorie');
+const Category = require('./category');
 const Role = require('./role');
 const Server = require('./server');
 const User = require('./user');
 
 module.exports = {
-    Categorie,
+    Category,
     Role,
     Server,
     User
