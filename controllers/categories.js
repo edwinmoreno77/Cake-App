@@ -14,6 +14,7 @@ const getAllCategories = async (req = request, res = response) => {
         const [total, category] = await Promise.all([
             Category.countDocuments(query),
             Category.find(query)
+                .populate('user', 'name')
                 .skip(Number(from))
                 .limit(Number(limit))
         ]);
@@ -36,9 +37,7 @@ const getCategoryById = async (req = request, res = response) => {
 
         const { id } = req.params;
 
-        const category = await Category.findById(id);
-
-        console.log(category);
+        const category = await Category.findById(id).populate('user', 'name email role');
 
         if (!category.state) {
             return res.status(404).json({
@@ -95,23 +94,29 @@ const createCategory = async (req, res = response) => {
 const updateCategory = async (req, res = response) => {
 
     try {
-
         const { id } = req.params;
 
         const name = req.body.name.toUpperCase();
 
-        const categoryDB = await Category.findById(id);
+        const category = await Category.findById(id);
 
         const updateName = await Category.findOne({ name });
 
-        if (!updateName) {
-            categoryDB.name = name;
-            await categoryDB.save();
-            res.json(categoryDB);
+        if (category) {
+
+            if (!updateName) {
+                category.name = name;
+                const categoryDB = await category.populate('user', 'name');
+                await categoryDB.save();
+                res.json(categoryDB);
+            } else {
+                return res.status(400).json({
+                    msg: `Category ${updateName.name} already exists`
+                });
+            }
         } else {
             return res.status(400).json({
-                ok: false,
-                msg: `Category ${updateName.name} already exists`
+                msg: `Category ${id} not found`
             });
         }
 
@@ -126,24 +131,18 @@ const updateCategory = async (req, res = response) => {
 const deleteCategory = async (req, res = response) => {
 
     try {
-
         const { id } = req.params;
-
         const categoryDB = await Category.findById(id);
 
         if (!categoryDB.state) {
             return res.status(400).json({
-                ok: false,
                 msg: 'Category not found'
             });
         }
 
         const category = await Category.findByIdAndUpdate(id, { state: false });
 
-        res.json({
-            msg: 'Category deleted',
-            category
-        });
+        res.json(category);
 
     } catch (error) {
         console.log(error);

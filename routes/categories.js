@@ -11,7 +11,8 @@ const {
 const {
     validateJWT,
     validateFields,
-    categoryExistsById } = require('../middlewares');
+    categoryExistsById,
+    isAdminRole } = require('../middlewares');
 
 
 const router = Router();
@@ -39,6 +40,7 @@ router.post('/', [
 //update category - private - users with valaid token
 
 router.put('/:id', [
+    validateJWT,
     check('id', 'invalid id').isMongoId(),
     check('name', 'name is required').not().isEmpty(),
     validateFields,
@@ -48,6 +50,10 @@ router.put('/:id', [
 
 router.delete('/:id', [
     check('id', 'invalid id').isMongoId(),
+    validateJWT,
+    isAdminRole,
+    validateFields,
+    check('id').custom(categoryExistsById),
     validateFields,
 ], deleteCategory);
 

@@ -23,7 +23,7 @@ const categorySchema = new Schema({
 });
 
 categorySchema.method('toJSON', function () {
-    const { __v, _id, ...category } = this.toObject();
+    const { __v, _id, state, ...category } = this.toObject();
     let uid = _id;
     let orderCategory = Object.assign({ uid }, category);
     return orderCategory;
