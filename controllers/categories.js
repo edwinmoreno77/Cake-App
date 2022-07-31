@@ -3,7 +3,6 @@ const { response, request } = require("express");
 const { Category } = require('../models');
 
 
-
 // get all categories
 
 const getAllCategories = async (req = request, res = response) => {

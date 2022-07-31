@@ -1,8 +1,17 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { getAllCategories, createCategory, getCategoryById, updateCategory, deleteCategory } = require('../controllers/categories');
 
-const { validateJWT, validateFields, categoryExistsById } = require('../middlewares');
+const {
+    getAllCategories,
+    createCategory,
+    getCategoryById,
+    updateCategory,
+    deleteCategory } = require('../controllers/categories');
+
+const {
+    validateJWT,
+    validateFields,
+    categoryExistsById } = require('../middlewares');
 
 
 const router = Router();
