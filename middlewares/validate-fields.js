@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const { User, Category } = require('../models');
+const { User, Category, Product } = require('../models');
 
 
 const validateFields = (req, res, next) => {
@@ -38,6 +38,16 @@ const categoryExistsById = async (id) => {
     const idExist = await Category.findById(id);
 
     if (!idExist) {
+        throw new Error(`Category ID:${id} does not exist`);
+    }
+
+}
+
+const productExistsById = async (id) => {
+
+    const idExist = await Product.findById(id);
+
+    if (!idExist) {
         throw new Error(`ID:${id} does not exist`);
     }
 
@@ -48,5 +58,6 @@ module.exports = {
     validateFields,
     emailExists,
     userExistsById,
-    categoryExistsById
+    categoryExistsById,
+    productExistsById
 }
