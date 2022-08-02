@@ -5,19 +5,16 @@ const { dbConnection } = require('../database/config.db');
 
 class Server {
 
-
     constructor() {
-
         this.app = express();
         this.port = process.env.PORT;
         this.paths = {
             auth: '/api/auth',
             user: '/api/user',
             categories: '/api/categories',
-            products: '/api/products'
-
+            products: '/api/products',
+            search: '/api/search'
         }
-
 
         // connect to database
         this.connectDB();
@@ -29,14 +26,11 @@ class Server {
         this.routes();
     }
 
-
     async connectDB() {
         await dbConnection();
-
     }
 
     middlewares() {
-
         //cors
         this.app.use(cors());
 
@@ -45,16 +39,14 @@ class Server {
 
         //public folder
         this.app.use(express.static('public'));
-
     }
 
     routes() {
-
         this.app.use(this.paths.auth, require('../routes/auth'));
         this.app.use(this.paths.categories, require('../routes/categories'));
         this.app.use(this.paths.products, require('../routes/products'));
         this.app.use(this.paths.user, require('../routes/user'));
-
+        this.app.use(this.paths.search, require('../routes/search'));
     }
 
     listen() {
@@ -62,10 +54,6 @@ class Server {
             console.log(`Server is running on port ${this.port}`)
         });
     }
-
-
 }
-
-
 
 module.exports = Server;
