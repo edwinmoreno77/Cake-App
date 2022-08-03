@@ -11,8 +11,10 @@ const {
 const {
     validateJWT,
     validateFields,
-    categoryExistsById,
+    // categoryExistsById,
     isAdminRole } = require('../middlewares');
+
+const { categoryExistsById } = require('../helpers');
 
 
 const router = Router();

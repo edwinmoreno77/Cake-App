@@ -11,9 +11,9 @@ const {
 const {
     validateJWT,
     validateFields,
-    categoryExistsById,
-    isAdminRole,
-    productExistsById } = require('../middlewares');
+    isAdminRole } = require('../middlewares');
+
+const { categoryExistsById, productExistsById } = require('../helpers');
 
 
 const router = Router();

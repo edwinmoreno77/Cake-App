@@ -7,7 +7,6 @@ const uploadFile = (files, validExtensions = ['png', 'jpg', 'gif', 'jpeg'], fold
     return new Promise((resolve, reject) => {
 
         const { file } = files;
-
         const cutName = file.name.split('.');
         const fileExtension = cutName[cutName.length - 1];
 
@@ -26,6 +25,7 @@ const uploadFile = (files, validExtensions = ['png', 'jpg', 'gif', 'jpeg'], fold
 
             resolve(temporaryName);
         });
+
     });
 }
 
