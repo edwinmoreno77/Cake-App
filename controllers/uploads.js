@@ -91,11 +91,16 @@ const updateImageClaudinary = async (req, res = response) => {
         const nameArr = model.img.split('/');
         const name = nameArr[nameArr.length - 1];
         const [public_id] = name.split('.');
-        cloudinary.uploader.destroy(public_id);
+        // cloudinary.uploader.destroy(public_id);//delete image from cloudinary whitout folder
+        cloudinary.uploader.destroy(`restServer/${collection}/${public_id}`);
+
     }
 
     const { tempFilePath } = req.files.file
-    const { secure_url } = await cloudinary.uploader.upload(tempFilePath);
+    // const { secure_url } = await cloudinary.uploader.upload(tempFilePath);//upload image to cloudinary whitout folder
+    const { secure_url } = await cloudinary.uploader.upload(tempFilePath, { folder: `restServer/${collection}` });
+
+    console.log(secure_url);
 
     model.img = secure_url;
     await model.save();
