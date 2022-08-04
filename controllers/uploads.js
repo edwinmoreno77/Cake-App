@@ -1,3 +1,5 @@
+const path = require('path');
+const fs = require('fs');
 const { response } = require("express");
 
 const { uploadFile } = require("../helpers");
@@ -41,6 +43,16 @@ const updateImage = async (req, res = response) => {
         default:
             return res.status(500).json({ msg: `collection ${collection} not exist` });
     }
+
+    // clean old image
+    if (model.img) {
+        const imagePath = path.join(__dirname, '../uploads/', collection, model.img);
+        if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath);
+        }
+    }
+
+
     const name = await uploadFile(req.files, undefined, collection);
     model.img = name;
     await model.save();
