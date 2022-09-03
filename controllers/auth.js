@@ -104,10 +104,7 @@ const googleSignIn = async (req, res = response) => {
 
 const revalidarToken = async (req, res = response) => {
 
-    const { _id: uid, name } = req.user;
-
-    // console.log(req)
-    console.log(uid, name);
+    const { _id: uid, name, role } = req.user;
 
     // Generar JWT
     const token = await generateJWT(uid, name);
@@ -116,6 +113,7 @@ const revalidarToken = async (req, res = response) => {
         ok: true,
         uid,
         name,
+        role,
         token
     })
 }
