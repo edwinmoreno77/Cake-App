@@ -4,6 +4,12 @@ const fileUpload = require('express-fileupload');
 
 const { dbConnection } = require('../database/config.db');
 
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+}
+
 class Server {
 
     constructor() {
@@ -34,7 +40,8 @@ class Server {
 
     middlewares() {
         //cors
-        this.app.use(cors());
+        // this.app.use(cors());
+        this.app.use(cors(corsOptions));
 
         //read and parse json
         this.app.use(express.json());
