@@ -4,8 +4,13 @@ const fileUpload = require('express-fileupload');
 
 const { dbConnection } = require('../database/config.db');
 
+
+let url = (window.location.hostname.includes('localhost'))
+    ? 'http://localhost:5173'
+    : 'https://restserver-ready.herokuapp.com';
+
 const corsOptions = {
-    origin: 'http://localhost:5173' || 'https://pasteleria-fatima.herokuapp.com/',
+    origin: url,
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
@@ -40,8 +45,8 @@ class Server {
 
     middlewares() {
         //cors
-        // this.app.use(cors());
         this.app.use(cors(corsOptions));
+        // this.app.use(cors());
 
         //read and parse json
         this.app.use(express.json());
