@@ -5,12 +5,9 @@ const fileUpload = require('express-fileupload');
 const { dbConnection } = require('../database/config.db');
 
 
-let url = (window.location.hostname.includes('localhost'))
-    ? 'http://localhost:5173'
-    : 'https://restserver-ready.herokuapp.com';
 
 const corsOptions = {
-    origin: url,
+    origin: 'https://restserver-ready.herokuapp.com',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
