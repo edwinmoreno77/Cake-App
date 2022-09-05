@@ -7,7 +7,7 @@ const { dbConnection } = require('../database/config.db');
 
 
 const corsOptions = {
-    origin: 'https://restserver-ready.herokuapp.com',
+    origin: 'https://pasteleria-fatima.herokuapp.com',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
