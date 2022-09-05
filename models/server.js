@@ -5,9 +5,9 @@ const fileUpload = require('express-fileupload');
 const { dbConnection } = require('../database/config.db');
 
 
-
 const corsOptions = {
-    origin: 'https://pasteleria-fatima.herokuapp.com',
+    // origin: '*',
+    origin: 'http://localhost:5173' || 'https://pasteleria-fatima.herokuapp.com',
     credentials: true,            //access-control-allow-credentials:true
     optionSuccessStatus: 200
 }
