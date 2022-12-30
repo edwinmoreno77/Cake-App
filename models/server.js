@@ -6,12 +6,13 @@ const { dbConnection } = require('../database/config.db');
 
 // CORSOPTIONS ME PERMITE DEFINIR DE QUE ORIGEN VAN A VENIR LAS PETICIONES
 
-// const corsOptions = {
-// origin: 'http://localhost:5173',
-// origin: '*',
-// credentials: true,            //access-control-allow-credentials:true
-// optionSuccessStatus: 200
-// }
+const corsOptions = {
+    // origin: 'http://localhost:5173',
+    origin: 'https://basic-backend-ready.vercel.app',
+    // origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+}
 
 class Server {
 
@@ -43,10 +44,10 @@ class Server {
 
     middlewares() {
         //CORS
-        this.app.use(cors());
+        // this.app.use(cors());
 
         // PARA CONFIGURAR EL CORS OPTIONS
-        // THIS.APP.USE(CORS(CORSOPTIONS));
+        this.app.use(cors(corsOptions));
 
         //READ AND PARSE JSON
         this.app.use(express.json());
