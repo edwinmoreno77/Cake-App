@@ -1,6 +1,6 @@
 # WebServer + RestServer
 
-this is a restServer made with node, express and mongoDB.
+this is a restServer made with nodeJs, Express and MongoDB.
 
 
 run ```npm install ``` to rebuild node modules.
