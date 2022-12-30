@@ -4,14 +4,14 @@ const fileUpload = require('express-fileupload');
 
 const { dbConnection } = require('../database/config.db');
 
+// CORSOPTIONS ME PERMITE DEFINIR DE QUE ORIGEN VAN A VENIR LAS PETICIONES
 
-const corsOptions = {
-    // origin: 'http://localhost:5173',
-    origin: 'https://pasteleria-fatima.herokuapp.com',
-    // origin: '*',
-    credentials: true,            //access-control-allow-credentials:true
-    optionSuccessStatus: 200
-}
+// const corsOptions = {
+// origin: 'http://localhost:5173',
+// origin: '*',
+// credentials: true,            //access-control-allow-credentials:true
+// optionSuccessStatus: 200
+// }
 
 class Server {
 
@@ -27,13 +27,13 @@ class Server {
             uploads: '/api/uploads'
         }
 
-        // connect to database
+        // CONNECT TO DATABASE
         this.connectDB();
 
-        //Middlewares
+        //MIDDLEWARES
         this.middlewares();
 
-        //routes of my app
+        //ROUTES OF MY APP
         this.routes();
     }
 
@@ -42,33 +42,42 @@ class Server {
     }
 
     middlewares() {
-        //cors
-        this.app.use(cors(corsOptions));
-        // this.app.use(cors());
+        //CORS
+        this.app.use(cors());
 
-        //read and parse json
+        // PARA CONFIGURAR EL CORS OPTIONS
+        // THIS.APP.USE(CORS(CORSOPTIONS));
+
+        //READ AND PARSE JSON
         this.app.use(express.json());
 
-        //public folder
+        //PUBLIC FOLDER
         this.app.use(express.static('public'));
 
-        // file upload
+        // FILE UPLOAD
         this.app.use(fileUpload({
             useTempFiles: true,
             tempFileDir: '/tmp/',
             createParentPath: true
         }));
-
     }
 
+
     routes() {
+
         this.app.use(this.paths.auth, require('../routes/auth'));
         this.app.use(this.paths.categories, require('../routes/categories'));
         this.app.use(this.paths.products, require('../routes/products'));
         this.app.use(this.paths.user, require('../routes/user'));
         this.app.use(this.paths.search, require('../routes/search'));
         this.app.use(this.paths.uploads, require('../routes/uploads'));
+
+        // ESTA RUTA LE DICE A EXPRESS QUE CUALQUIER RUTA QUE NO ESTE DEFINIDA EN LAS RUTAS ANTERIORES, ME DEVUELVA EL INDEX.HTML Y REACT SE ENCARGUE DE MANEJAR LAS RUTAS
+        this.app.get('*', (req, res) => {
+            res.sendFile('index.html', { root: 'public' });
+        });
     }
+
 
     listen() {
         this.app.listen(this.port, () => {
