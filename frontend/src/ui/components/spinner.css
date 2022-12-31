@@ -1,0 +1,47 @@
+.container-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.bg-container {
+    background-image: url('/assets/fondo-cakes.png') fixed;
+}
+
+.bg-container::before {
+    content: '';
+    background-image: url('/assets/fondo-cakes.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.080;
+}
+
+.spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    border: 7px solid #fadcba;
+    border-top: 7px solid #ff9020;
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+}
+
+.spinner img {
+    width: 10rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

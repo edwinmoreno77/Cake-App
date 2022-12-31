@@ -1,0 +1,79 @@
+.containerE {
+    width: 80%;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.bg-navbarE {
+    background-color: rgb(32, 36, 40);
+    padding: 0.5em 0;
+}
+
+.navbarE {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 10rem;
+    font-size: 0.73rem;
+
+}
+
+
+@media (min-width: 768px) {
+    .navbarE {
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 1.15rem;
+    }
+}
+
+.navbar-brandE {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+
+}
+
+.navbar-brandE img {
+    width: 7em;
+    transform: scale(1);
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-brandE:hover img {
+    transform: scale(1.12);
+    filter: drop-shadow(0 0 0.5em #cd940faa);
+}
+
+.navbar-navE {
+    background-color: hsla(14, 78%, 61%, 1);
+    background-image:
+        radial-gradient(at 94% 43%, hsla(30, 99%, 48%, 0.73) 0px, transparent 50%),
+        radial-gradient(at 5% 93%, hsla(57, 100%, 50%, 0.24) 0px, transparent 50%),
+        radial-gradient(at 4% 44%, hsla(57, 100%, 50%, 0.21) 0px, transparent 50%),
+        radial-gradient(at 36% 8%, hsla(57, 100%, 50%, 0.26) 0px, transparent 50%),
+        radial-gradient(at 95% 10%, hsla(57, 100%, 50%, 0.14) 0px, transparent 50%);
+    border-radius: 3em;
+    margin: 10px;
+    padding: 1em;
+    margin-top: 1.8rem;
+
+}
+
+.nav-linkE {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.5em;
+    color: black;
+}
+
+.nav-linkE:hover {
+    background-color: rgb(29, 31, 37);
+    color: white;
+    border-radius: 0.9em;
+    padding: 0.5em;
+}
