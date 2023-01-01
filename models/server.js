@@ -79,16 +79,16 @@ class Server {
 
         //PUBLIC FOLDER
         // this.app.use(express.static('./frontend/build'));
-        app.use(express.static(path.join(__dirname, "./frontend/build")));
+        this.app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 
         // ESTA RUTA LE DICE A EXPRESS QUE CUALQUIER RUTA QUE NO ESTE DEFINIDA EN LAS RUTAS ANTERIORES, ME DEVUELVA EL INDEX.HTML Y REACT SE ENCARGUE DE MANEJAR LAS RUTAS
         // this.app.get('*', (req, res) => {
         //     res.sendFile('index.html', { root: './frontend/build/index.html' });
         // });
-        app.get("*", function (_, res) {
+        this.app.get("*", function (_, res) {
             res.sendFile(
-                path.join(__dirname, "./frontend/build/index.html"),
+                path.join(__dirname, "../frontend/build/index.html"),
                 function (err) {
                     if (err) {
                         res.status(500).send(err);
