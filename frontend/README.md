@@ -1,4 +1,3 @@
-
 # Notes
 
 ## development
@@ -10,12 +9,12 @@
 # For example
 
 ```
-VITE_API_URL=http://localhost:3000 
+VITE_API_URL=http://localhost:3000
 
 ```
-
 
 ## Deployed in
+
 ```
-https://pasteleria-fatima.herokuapp.com/homePage
+https://fatima-app-backend.vercel.app/
 ```
