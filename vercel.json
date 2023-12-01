@@ -1,9 +1,8 @@
 {
   "version": 2,
   "functions": {
-    "index.js": {
-      "src": "./index.js",
-      "use": "@vercel/node"
+    "./index.js": {
+      "runtime": "@vercel/node"
     }
   },
   "routes": [
