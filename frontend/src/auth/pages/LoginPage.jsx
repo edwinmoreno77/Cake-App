@@ -157,11 +157,11 @@ export const LoginPage = () => {
                         </div>
                         <div className="text-center my-2">
                             <i className="bi bi-whatsapp text-success"><a href=""
-                                className="text-decoration-none text-dark">+56-9354159999</a></i>
+                                className="text-decoration-none text-dark">+56-9999999999</a></i>
 
                             <p> <a
-                                href="https://www.google.com/maps/place/Homero+%C3%81vila+955,+Antofagasta/@-23.672912,-70.4057214,17z/data=!3m1!4b1!4m5!3m4!1s0x96afd5a11082bb11:0xd22d1a0e8d51e0a1!8m2!3d-23.672912!4d-70.4035327" target="_blank" rel="noopener noreferrer"
-                                className="text-decoration-none text-danger"><i className="bi bi-geo-fill"></i></a>Antofagasta-Homero Avila 955</p>
+                                href="https://www.google.cl/maps/place/Antofagasta/@-23.628348,-70.4873002,12z/data=!3m1!4b1!4m6!3m5!1s0x96a58a1999656469:0x9fbe15f44d1e6f96!8m2!3d-23.6509279!4d-70.3975022!16zL20vMDNuNmhf?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"
+                                className="text-decoration-none text-danger"><i className="bi bi-geo-fill"></i></a>Antofagasta</p>
                             <p className="m-2 lead"><i>Derechos Reservados, &copy;Fatima.Afta.</i></p>
                         </div>
                     </div >

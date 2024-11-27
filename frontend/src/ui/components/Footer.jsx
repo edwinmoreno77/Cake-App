@@ -28,7 +28,7 @@ export const Footer = () => {
                         className="text-decoration-none text-white">+56-999999999</a></i>
 
                     <p> <a href="https://www.google.cl/maps/place/Antofagasta/@-23.628348,-70.4873002,12z/data=!3m1!4b1!4m6!3m5!1s0x96a58a1999656469:0x9fbe15f44d1e6f96!8m2!3d-23.6509279!4d-70.3975022!16zL20vMDNuNmhf?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"
-                        className="text-decoration-none text-danger"><i className="bi bi-geo-fill"></i></a>Antofagasta-Homero Avila 955</p>
+                        className="text-decoration-none text-danger"><i className="bi bi-geo-fill"></i></a>Antofagasta</p>
                     <p className="m-2 lead"><i>Derechos Reservados, &copy;Fatima.Afta.</i></p>
                 </div>
 
