@@ -1,11 +1,11 @@
-# WebServer + RestServer
+# WebServer + RestServer + Fatima Frontend
 
-this is a restServer made with nodeJs, Express and MongoDB.
+this is a restServer made with nodeJs, Express, MongoDB and ReactJS
 
 run `npm install ` to rebuild node modules.
 
 ## Deployed in
 
 ```
-https://fatima-app-backend.vercel.app/
+https://fatima-app-backend.onrender.com
 ```
