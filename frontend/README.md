@@ -16,5 +16,5 @@ VITE_API_URL=http://localhost:3000
 ## Deployed in
 
 ```
-https://fatima-app-backend.vercel.app/
+https://fatima-app-backend.onrender.com
 ```
