@@ -24,8 +24,8 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
 - Usuarios (/api/user).
 - Categorías y productos (/api/categories, /api/products).
 - Búsquedas globales (/api/search).
-- Subida de archivos (/api/uploads).
-- 
+- Subida de archivos a Cloudinary (/api/uploads).
+ 
 ## Frontend
 
 - Framework: React con Vite.
@@ -34,20 +34,30 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
 - Rutas dinámicas: React Router.
 - Alertas: SweetAlert2.
 - Conexión con backend: Axios para peticiones HTTP.
-- 🚀 Cómo ejecutar el proyecto
-- Requisitos previos
+
+## Requisitos previos
+
 - Node.js v16 o superior.
 - MongoDB Atlas o local.
-- 
-## Instalación
+ 
+# Instalación
 
-- Clona el repositorio:
+### Clona el repositorio:
   
   ```
   git clone https://github.com/edwinmoreno77/fatima-app-backend.git
   cd fatima-app-backend
   ```
-
+### Renombrar variables de entorno
+- backend y frontend
+ 
+  ```
+  cd frontend 
+  yarn install
+  cd ..
+  npm install
+  node index.js
+  ```
 
 ## Desplegado en
 
