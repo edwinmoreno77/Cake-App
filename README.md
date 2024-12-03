@@ -14,6 +14,7 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
 
 # 🌟 Características principales
 ## Backend
+
 - Framework: Express.js
 - Base de datos: MongoDB
 - Autenticación: Integración con Google OAuth y JWT.
@@ -24,7 +25,9 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
 - Categorías y productos (/api/categories, /api/products).
 - Búsquedas globales (/api/search).
 - Subida de archivos (/api/uploads).
+- 
 ## Frontend
+
 - Framework: React con Vite.
 - Estado global: Redux Toolkit.
 - Estilo: Bootstrap + CSS personalizado.
@@ -35,11 +38,18 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
 - Requisitos previos
 - Node.js v16 o superior.
 - MongoDB Atlas o local.
-- Instalación
+- 
+## Instalación
+
 - Clona el repositorio:
+  
+  ```
+  git clone https://github.com/edwinmoreno77/fatima-app-backend.git
+  cd fatima-app-backend
+  ```
 
 
-## Deployed in
+## Desplegado en
 
 ```
 https://fatima-app-backend.onrender.com
