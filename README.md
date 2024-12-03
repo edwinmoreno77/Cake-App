@@ -1,5 +1,6 @@
 # Fatima Cake App 🍰
-Fatima Cake App es una aplicación web diseñada para la gestión de productos de pastelería, proporcionando una interfaz moderna para que los usuarios puedan explorar y agendar sus cakes favoritos. Este proyecto utiliza tecnologías actuales tanto en el frontend como en el backend para ofrecer una experiencia fluida.
+Fatima Cake App is a web application designed for managing bakery products, offering a modern interface for users to explore and schedule their favorite cakes.
+This project leverages modern technologies in both the frontend and backend to deliver a seamless experience.
 
 <div style="display: flex; justify-content: center; gap: 10px;">
   <img src="https://github.com/edwinmoreno77/fatima-app-backend/blob/main/frontend/assets/loginGif.gif" alt="Login" width="200">
@@ -12,43 +13,43 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
 </div>
 
 
-# 🌟 Características principales
+# 🌟 Main features
 ## Backend
 
 - Framework: Express.js
-- Base de datos: MongoDB
-- Autenticación: Integración con Google OAuth y JWT.
-- Gestión de archivos: Subida de imágenes con Cloudinary.
-- API REST:
-- Autenticación (/api/auth).
-- Usuarios (/api/user).
-- Categorías y productos (/api/categories, /api/products).
-- Búsquedas globales (/api/search).
-- Subida de archivos a Cloudinary (/api/uploads).
+- Database: MongoDB
+- Authentication: Integration with Google OAuth and JWT.
+- File management: Image upload with Cloudinary.
+- REST API:
+- Authentication (/api/auth).
+- Users (/api/user).
+- Categories and products (/api/categories, /api/products).
+- Global searches (/api/search).
+- File upload to Cloudinary (/api/uploads).
  
 ## Frontend
 
-- Framework: React con Vite.
-- Estado global: Redux Toolkit.
-- Estilo: Bootstrap + CSS personalizado.
-- Rutas dinámicas: React Router.
-- Alertas: SweetAlert2.
-- Conexión con backend: Axios para peticiones HTTP.
+- Framework: React with Vite.
+- Global state: Redux Toolkit.
+- Style: Bootstrap + custom CSS.
+- Dynamic routes: React Router.
+- Alerts: SweetAlert2.
+- Connection with backend: Axios for HTTP requests.
 
-## Requisitos previos
+## Prerequisites
 
-- Node.js v16 o superior.
-- MongoDB Atlas o local.
+- Node.js v16 or higher.
+- MongoDB Atlas or local.
  
-# Instalación
+# Installation
 
-### Clona el repositorio:
+### Clone the repository:
   
   ```
   git clone https://github.com/edwinmoreno77/fatima-app-backend.git
   cd fatima-app-backend
   ```
-### Renombrar variables de entorno
+Rename environment variables
 - backend y frontend
  
   ```
@@ -59,7 +60,7 @@ Fatima Cake App es una aplicación web diseñada para la gestión de productos d
   node index.js
   ```
 
-## Desplegado en
+## Deployed in
 
 ```
 https://fatima-app-backend.onrender.com
