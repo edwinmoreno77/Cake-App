@@ -1,6 +1,5 @@
 # Fatima Cake App 🍰
-Fatima Cake App is a web application designed for managing bakery products, offering a modern interface for users to explore and schedule their favorite cakes.
-
+Fatima Cake App is a web application designed for cake management, offering a modern and user-friendly interface for users to explore and schedule their favorite cakes. The app also supports managing custom cake orders, browsing featured products, scheduling orders, and organizing categories and products through a REST API.
 
 <div style="display: flex; justify-content: center; gap: 10px;">
   <img src="https://github.com/edwinmoreno77/fatima-app-backend/blob/main/frontend/assets/loginGif.gif" alt="Login" width="200">
